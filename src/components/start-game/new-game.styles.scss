@@ -1,0 +1,62 @@
+.newStart {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .center-screen {
+    width: 98%;
+    height: 90%;
+    background-color: rgba(104, 126, 126, 0.866);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    column-gap: 10px;
+    padding: 10px;
+  }
+  .player1,
+  .player2 {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #ccc;
+    color: rgb(108, 100, 100);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 20px;
+  }
+  .player1 {
+  }
+  .title {
+  }
+  .divider {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .card-draw {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .start {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 40px;
+    color: white;
+  }
+  button {
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+  .player2 {
+    width: 100%;
+  }
+}
