@@ -10,7 +10,6 @@ function App() {
       <Routes>
         <Route path="/" element={<div className="bg-image">Play the game of Cards</div>} />
         <Route path="start" element={<NewGame />} />
-        <Route path="reset" element={<div className="bg-image">reset</div>} />
         <Route path="history" element={<div className="bg-image">history</div>} />
       </Routes>
     </div>

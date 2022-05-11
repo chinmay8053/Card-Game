@@ -11,7 +11,9 @@ function Header() {
           <Link to={"/start"}>New Game</Link>
         </div>
         <div className="menu-btn">
-          <Link to={"/reset"}>Reset</Link>
+          <Link to={"/start"} onClick={() => window.location.reload()}>
+            Reset
+          </Link>
         </div>
         <div className="menu-btn">
           <Link to={"/history"}>History</Link>

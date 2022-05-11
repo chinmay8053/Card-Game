@@ -8,12 +8,18 @@
   .center-screen {
     width: 98%;
     height: 90%;
-    background-color: rgba(104, 126, 126, 0.866);
+    background-color: #687e7edd;
     border-radius: 20px;
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr;
     column-gap: 10px;
     padding: 10px;
+  }
+  .screen-blur {
+    filter: blur(5px) opacity(0.9);
+  }
+  .hidden {
+    display: none;
   }
   .player1,
   .player2 {
@@ -50,13 +56,43 @@
     flex-direction: column;
     gap: 40px;
     color: white;
+    position: relative;
   }
-  button {
+
+  .playCard {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: "Courgette", cursive;
     padding: 5px 10px;
-    border: 1px solid black;
     border-radius: 10px;
+    border: 1px solid cadetblue;
+    cursor: pointer;
+    transition: 250ms;
+    background-color: rgb(82, 133, 133);
+
+    &:hover {
+      transform: scale(0.97);
+      box-shadow: 2px 3px 10px 1px rgba(0, 0, 0, 0.064);
+    }
+
+    &:active {
+      transform: scale(0.96);
+      box-shadow: 2px 3px 10px 1px rgba(0, 0, 0, 0.208);
+    }
   }
-  .player2 {
-    width: 100%;
+  .playerWins {
+    position: absolute;
+    padding: 100px;
+    font-family: "Courgette", cursive;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    background-color: rgb(85, 122, 123);
+    text-align: center;
+    color: white;
+    margin: 20px;
+    border-radius: 20px;
   }
 }
