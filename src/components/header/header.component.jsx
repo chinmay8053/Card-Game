@@ -5,13 +5,15 @@ import "./header.styles.scss";
 function Header() {
   return (
     <header className="header">
-      <div className="logo">Cards</div>
+      <div className="logo" onClick={() => window.location.replace("/")}>
+        Cards
+      </div>
       <div className="menu">
         <div className="menu-btn">
           <Link to={"/start"}>New Game</Link>
         </div>
         <div className="menu-btn">
-          <Link to={"/start"} onClick={() => window.location.reload()}>
+          <Link to={"/start"} onClick={() => window.location.replace("/start")}>
             Reset
           </Link>
         </div>

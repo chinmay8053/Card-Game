@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Courgette", cursive;
   .center-screen {
     width: 98%;
     height: 90%;
@@ -59,13 +60,16 @@
     color: white;
     position: relative;
   }
+  .countRounds {
+    font-size: 32px;
+  }
 
   .playCard {
     color: white;
-    font-size: 20px;
+    font-size: 22px;
     text-decoration: none;
     font-family: "Courgette", cursive;
-    padding: 5px 10px;
+    padding: 10px 20px;
     border-radius: 10px;
     border: 1px solid cadetblue;
     cursor: pointer;
@@ -74,12 +78,12 @@
 
     &:hover {
       transform: scale(0.97);
-      box-shadow: 2px 3px 10px 1px rgba(0, 0, 0, 0.064);
+      box-shadow: 2px 3px 20px 5px rgba(0, 0, 0, 0.264);
     }
 
     &:active {
-      transform: scale(0.96);
-      box-shadow: 2px 3px 10px 1px rgba(0, 0, 0, 0.208);
+      transform: scale(0.95);
+      box-shadow: 2px 3px 20px 5px rgba(0, 0, 0, 0.408);
     }
   }
   .playerWins {
@@ -98,10 +102,40 @@
     box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.322);
   }
   .showScore {
+    padding: 0 5px;
     position: absolute;
     font-size: 18px;
     color: cadetblue;
     animation: upDown 1.3s ease-in-out infinite alternate-reverse both;
+  }
+
+  .playerName {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    justify-content: center;
+    justify-content: center;
+  }
+  .inputPlayerName {
+    margin: 0 auto;
+    padding: 5px 10px;
+    width: 300px;
+    border-radius: 5px;
+    border-radius: 5px;
+    font-family: "Courgette", cursive;
+    text-decoration: none;
+    border: none;
+    box-shadow: 0 0 5px 2px grey;
+    background-color: silver;
+    outline: none;
+  }
+  .btnPlayerName {
+    margin: 0 auto;
+    margin-top: 10px;
+    background-color: rgba(95, 158, 160, 0.905);
+    padding: 5px 10px;
+    width: 150px;
+    font-size: 16px;
   }
 }
 
