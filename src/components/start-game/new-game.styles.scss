@@ -37,6 +37,7 @@
   .player1 {
   }
   .title {
+    position: relative;
   }
   .divider {
     width: 90%;
@@ -94,5 +95,21 @@
     color: white;
     margin: 20px;
     border-radius: 20px;
+    box-shadow: 2px 2px 10px 10px rgba(0, 0, 0, 0.322);
+  }
+  .showScore {
+    position: absolute;
+    font-size: 18px;
+    color: cadetblue;
+    animation: upDown 1.3s ease-in-out infinite alternate-reverse both;
+  }
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(3px);
+  }
+  100% {
+    transform: translateY(-3px);
   }
 }

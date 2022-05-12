@@ -64,11 +64,11 @@ function NewGame() {
 
       if (drawTwoCard.remaining === 0) {
         if (count.player1 > count.player2) {
-          setWinner(`Player 1 Wins  `);
+          setWinner(`Player 1 Wins`);
         } else if (count.player1 === count.player2) {
           setWinner(`Draw `);
         } else {
-          setWinner(`Player 2 Wins  `);
+          setWinner(`Player 2 Wins`);
         }
       }
     }
@@ -79,7 +79,9 @@ function NewGame() {
     <div className="newStart">
       <div className={`center-screen ${showWinner ? "screen-blur" : ""} `}>
         <div className="player1">
-          <h1 className="title">Player 1</h1>
+          <h1 className="title">
+            Player 1 <span className={`showScore ${count.player1 ? "" : "hidden"}`}>+{count.player1}</span>
+          </h1>
           <hr className="divider" />
           <div className="card-draw">{Array.isArray(TwoCard) && <img src={TwoCard[0].image} alt="card" />}</div>
         </div>
@@ -92,7 +94,9 @@ function NewGame() {
         </div>
 
         <div className="player2">
-          <h1 className="title">Player 2</h1>
+          <h1 className="title">
+            Player 2 <span className={`showScore ${count.player2 ? "" : "hidden"}`}>+{count.player2}</span>
+          </h1>
           <hr className="divider" />
           <div className="card-draw">{Array.isArray(TwoCard) && <img src={TwoCard[1].image} alt="card" />} </div>
         </div>
