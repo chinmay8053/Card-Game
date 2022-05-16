@@ -68,11 +68,11 @@ function NewGame() {
 
       if (drawTwoCard.remaining === 0) {
         if (count.player1 > count.player2) {
-          setWinner(`Player 1 Wins`);
+          setWinner(`${readName.player1} Wins`);
         } else if (count.player1 === count.player2) {
           setWinner(`Draw `);
         } else {
-          setWinner(`Player 2 Wins`);
+          setWinner(`${readName.player2} Wins`);
         }
       }
     }
