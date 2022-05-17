@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AllCards } from "../cards/all_cards";
-import { CheckRemainingCards, drawTwoCardsFromAllCards, shuffleTheCards } from "../cards/fuctionCards";
+import { CheckRemainingCards, drawTwoCardsFromAllCards, shuffleTheCards } from "../cards/functionCards";
 import { cardRankingChecker } from "./cardChecker";
 
 import "./new-game.styles.scss";
