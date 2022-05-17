@@ -1,32 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
-import { CardCode } from "../cardCode";
-import { UseFetchCreateDeck, useFetchDrawCards } from "../useFetch";
+import { AllCards } from "../cards/all_cards";
+import { CheckRemainingCards, drawTwoCardsFromAllCards, shuffleTheCards } from "../cards/fuctionCards";
+import { cardRankingChecker } from "./cardChecker";
 
 import "./new-game.styles.scss";
 
-const cardRankingChecker = (card1, card2) => {
-  let player1, player2;
-  CardCode.forEach((code, index) => {
-    if (card1 === code) {
-      player1 = index;
-    }
-    if (card2 === code) {
-      player2 = index;
-    }
-  });
-
-  if (player1 < player2) {
-    return 1;
-  } else {
-    return 0;
-  }
-};
-
 function NewGame() {
-  let cardId = useRef(null);
+  let shuffleCards = useRef(null);
   const [TwoCard, setTwoCard] = useState(null);
-  const [remaining, setRemaining] = useState(52);
   const [showWinner, setWinner] = useState(null);
+  const [remaining, setRemaining] = useState(52);
   const [readName, setReadName] = useState({
     player1: "",
     player2: "",
@@ -37,20 +20,17 @@ function NewGame() {
   });
 
   useEffect(() => {
-    const asyncFetch = async () => {
-      const createDeck = await UseFetchCreateDeck();
-      cardId.current = createDeck.deck_id;
-    };
-    asyncFetch();
-  }, [cardId]);
+    shuffleCards.current = shuffleTheCards(AllCards);
+  }, [shuffleCards]);
 
   const DrawCard = async () => {
-    const drawTwoCard = await useFetchDrawCards(cardId.current);
+    const drawFromShuffleCards = drawTwoCardsFromAllCards(shuffleCards.current);
 
-    const cards = drawTwoCard.cards;
-    if (drawTwoCard.success) {
+    if (drawFromShuffleCards.success) {
+      CheckRemainingCards(shuffleCards.current);
+      const cards = drawFromShuffleCards.cards;
       setTwoCard(cards);
-      setRemaining(drawTwoCard.remaining);
+      setRemaining(drawFromShuffleCards.remaining);
       setCount((prevState) => {
         const player = cardRankingChecker(cards[0].code, cards[1].code);
         if (player) {
@@ -66,7 +46,7 @@ function NewGame() {
         }
       });
 
-      if (drawTwoCard.remaining === 0) {
+      if (drawFromShuffleCards.remaining === 0) {
         if (count.player1 > count.player2) {
           setWinner(`${readName.player1} Wins`);
         } else if (count.player1 === count.player2) {
@@ -80,7 +60,6 @@ function NewGame() {
 
   const playerName = (e) => {
     e.preventDefault();
-    console.log(e.target.player1.value);
     const { player1, player2 } = e.target;
     if ((player1.value === "") | (player2.value === "")) {
       alert("player1 or player2 don't have a name");
